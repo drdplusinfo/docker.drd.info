@@ -2,3 +2,8 @@ http://skeleton.asterion.loc {
     root /var/www/skeleton.asterion
     import CaddyfileLocalPhpProject
 }
+
+http://hlavni-modul.asterion.loc {
+    root /var/www/hlavni-modul
+    import CaddyfileLocalPhpProject
+}
