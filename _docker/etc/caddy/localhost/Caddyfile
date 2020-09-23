@@ -1,6 +1,6 @@
 http://skeleton.asterion.loc {
     root * /var/www/skeleton.asterion
-    import CaddyfileLocalPhpProject
+    import ../CaddyfileLocalPhpProject
 }
 
 http://hlavni-modul.asterion.loc {
@@ -9,5 +9,5 @@ http://hlavni-modul.asterion.loc {
 
 http://hlavnimodul.asterion.loc {
     root * /var/www/hlavni-modul
-    import CaddyfileLocalPhpProject
+    import ../CaddyfileLocalPhpProject
 }

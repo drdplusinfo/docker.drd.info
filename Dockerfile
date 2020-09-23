@@ -51,8 +51,6 @@ RUN echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" > /etc/apt/sources.lis
 
 COPY ./_docker /
 
-RUN chmod +x /docker.sh && chmod -R 0600 /home/www-data/.ssh/*
+RUN chmod +x /entrypoint.sh && chmod -R 0600 /home/www-data/.ssh/*
 
-ENV XDEBUG_CONFIG "remote_host=10.10.2.1 remote_enable=1 	idekey=PHPSTORM remote_log=/tmp/xdebug.log"
-
-ENTRYPOINT ["sh", "/docker.sh"]
+ENTRYPOINT ["sh", "/entrypoint.sh"]

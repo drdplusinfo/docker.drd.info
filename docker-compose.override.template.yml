@@ -1,0 +1,29 @@
+version: "3"
+services:
+  asterionrpg.cz:
+    build: .
+    environment:
+      PHP_IDE_CONFIG: "serverName=asterion.loc"
+      PROJECT_ENVIRONMENT: "dev"
+      XDEBUG_CONFIG: "remote_host=172.17.0.1 remote_enable=1 idekey=PHPSTORM remote_log=/tmp/xdebug.log"
+    volumes:
+      - ./www:/var/www:delegated
+      - ./_docker/etc/caddy:/etc/caddy:delegated
+      - ./_docker/entrypoint.sh:/entrypoint.sh:delegated
+    entrypoint:
+      - sh
+      - -c
+      - set -x && docker-php-ext-enable xdebug && touch /tmp/xdebug.log && chmod 0777 /tmp/xdebug.log && /bin/bash /entrypoint.sh
+    labels:
+      - "traefik.backend=asterion.loc"
+      - "traefik.frontend.rule=HostRegexp: asterion[.]loc,{subdomain:(.+[.])+}asterion[.]loc"
+      - "traefik.docker.network=docker-www"
+      - "traefik.port=80"
+    networks:
+      - default
+      - proxy
+
+networks:
+  proxy:
+    external:
+      name: docker-www
