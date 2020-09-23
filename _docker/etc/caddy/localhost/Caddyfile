@@ -1,13 +1,21 @@
-http://skeleton.asterion.loc {
+http://skeleton.asterionrpg.loc {
     root * /var/www/skeleton.asterion
-    import ../CaddyfileLocalPhpProject
+    import CaddyfilePhpProject
 }
 
-http://hlavni-modul.asterion.loc {
-    redir http://hlavnimodul.asterion.loc{uri}
+http://hlavni-modul.asterionrpg.loc {
+    redir http://hlavnimodul.asterionrpg.loc{uri}
 }
 
-http://hlavnimodul.asterion.loc {
+http://hlavnimodul.asterionrpg.loc {
     root * /var/www/hlavni-modul
-    import ../CaddyfileLocalPhpProject
+    import CaddyfilePhpProject
+}
+
+http://asterionrpg.loc {
+    redir http://www.asterionrpg.loc{uri}
+}
+
+http://www.asterionrpg.loc {
+    reverse_proxy * www.asterionrpg:80 # www.asterionrpg is a name of another Docker instance, available via docker compose DNS
 }
