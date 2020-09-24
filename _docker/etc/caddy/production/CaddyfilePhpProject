@@ -1,0 +1,9 @@
+    tls mail@jaroslavtyc.com
+    encode zstd gzip
+    php_fastcgi 127.0.0.1:9000
+    @static {
+    		path_regexp static \.(js|css|ico|pdf|jpg|png|html|woff|woff2)
+    		not path_regexp forbidden \.json
+    		not path /vendor
+    }
+    file_server @static
