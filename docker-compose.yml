@@ -7,8 +7,6 @@ services:
     volumes:
       - ./www:/var/www:delegated
     labels:
-      - "traefik.backend=asterionrpg"
-      - "traefik.frontend.rule=HostRegexp: asterionrpg.cz,{subdomain:(.+[.])+}asterionrpg.cz"
       - "traefik.docker.network=docker-www"
     ports:
       - "80:80"
