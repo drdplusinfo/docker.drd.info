@@ -53,4 +53,4 @@ COPY ./_docker /
 
 RUN chmod +x /entrypoint.sh && chmod -R 0600 /home/www-data/.ssh/*
 
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
