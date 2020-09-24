@@ -22,7 +22,7 @@ services:
     networks:
       - default
       - proxy
-    restart: no
+    restart: "no"
 
 networks:
   proxy:

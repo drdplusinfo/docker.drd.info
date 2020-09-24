@@ -1,0 +1,4 @@
+http://skeleton.asterionrpg.loc {
+    root * /var/www/skeleton.asterion
+    import CaddyfilePhpProject
+}

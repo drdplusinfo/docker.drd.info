@@ -14,7 +14,7 @@ services:
     networks:
       - default
       - proxy
-    restart: always
+    restart: "always"
 
 networks:
   proxy:

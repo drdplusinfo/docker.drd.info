@@ -1,0 +1,8 @@
+http://hlavni-modul.asterionrpg.loc {
+    redir http://hlavnimodul.asterionrpg.loc{uri}
+}
+
+http://hlavnimodul.asterionrpg.loc {
+    root * /var/www/hlavni-modul
+    import CaddyfilePhpProject
+}
