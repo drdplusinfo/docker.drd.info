@@ -6,8 +6,6 @@ services:
       PROJECT_ENVIRONMENT: "prod"
     volumes:
       - ./www:/var/www:delegated
-    labels:
-      - "traefik.docker.network=docker-www"
     ports:
       - "80:80"
       - "443:443"
