@@ -8,12 +8,13 @@ services:
       - ./www:/var/www:delegated
     labels:
       - "traefik.backend=asterionrpg"
-      - "traefik.frontend.rule=HostRegexp: asterionrpg[.]cz,{subdomain:(.+[.])+}asterionrpg[.]cz"
+      - "traefik.frontend.rule=HostRegexp: asterionrpg.cz,{subdomain:(.+[.])+}asterionrpg.cz"
       - "traefik.docker.network=docker-www"
       - "traefik.port=80"
     networks:
       - default
       - proxy
+    restart: always
 
 networks:
   proxy:
