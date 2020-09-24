@@ -49,7 +49,7 @@ RUN echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" > /etc/apt/sources.lis
 		&& apt-get update && apt-get install caddy && caddy list-modules \
 		&& touch /var/log/caddy && chown caddy /var/log/caddy
 
-COPY ./_docker /
+COPY .docker /
 
 RUN chmod +x /entrypoint.sh && chmod -R 0600 /home/www-data/.ssh/*
 
