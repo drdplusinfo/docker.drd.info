@@ -1,16 +1,9 @@
-hlavni-modul.asterionrpg.cz {
-    redir https://hlavnimodul.asterionrpg.cz{uri}
-}
-
-hlavnimodul.asterionrpg.cz {
-    root * /var/www/hlavni-modul
-    import CaddyfilePhpProject
-}
+# import hlavnimodul.asterionrpg.cz
 
 asterionrpg.cz {
     redir https://www.asterionrpg.cz{uri}
 }
 
 www.asterionrpg.cz {
-    reverse_proxy * www.asterionrpg:443 # www.asterionrpg is a name of another Docker instance, available via docker compose DNS
+    reverse_proxy * www.asterionrpg:80 # www.asterionrpg is a name of another Docker instance, available via docker compose DNS
 }

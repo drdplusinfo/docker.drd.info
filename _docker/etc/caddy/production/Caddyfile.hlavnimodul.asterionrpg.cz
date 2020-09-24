@@ -1,0 +1,8 @@
+hlavni-modul.asterionrpg.cz {
+    redir https://hlavnimodul.asterionrpg.cz{uri}
+}
+
+hlavnimodul.asterionrpg.cz {
+    root * /var/www/hlavni-modul
+    import CaddyfilePhpProject
+}
