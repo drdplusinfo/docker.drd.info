@@ -2,17 +2,11 @@ version: "3"
 services:
   asterionrpg:
     build: .
-    environment:
-      PROJECT_ENVIRONMENT: "prod"
     volumes:
       - ./www:/var/www:delegated
-    ports:
-      - "80:80"
-      - "443:443"
     networks:
       - default
       - proxy
-    restart: "always"
 
 networks:
   proxy:

@@ -18,7 +18,6 @@ services:
       - "traefik.backend=asterionrpg"
       - "traefik.frontend.rule=HostRegexp: asterionrpg.loc,{subdomain:(.+[.])+}asterionrpg.loc"
       - "traefik.docker.network=docker-www"
-      - "traefik.port=80"
     networks:
       - default
       - proxy
