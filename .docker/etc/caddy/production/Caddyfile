@@ -1,2 +1,2 @@
-# import Caddyfile.hlavnimodul.asterionrpg.cz
+import Caddyfile.hlavnimodul.asterionrpg.cz
 import Caddyfile.www.asterionrpg.cz
