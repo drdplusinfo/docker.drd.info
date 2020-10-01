@@ -27,9 +27,8 @@ RUN pecl channel-update pecl.php.net \
     && pecl install yaml-2.1.0 \
     && docker-php-ext-enable yaml \
     && pecl install xdebug-2.9.8 \
-    && docker-php-ext-install zip \
-    && docker-php-ext-enable zip \
-    && docker-php-ext-install intl
+    && docker-php-ext-install intl \
+    && docker-php-ext-enable intl
 
 # re-build www-data user with same user ID and group ID as a current host user (you)
 RUN if getent passwd www-data ; then userdel -f www-data; fi && \
