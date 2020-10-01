@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libaio-dev \
       libxml2-dev \
       librabbitmq-dev \
+      libzip-dev zip unzip \
       curl \
       gnupg \
       libyaml-0-2 libyaml-dev \
@@ -23,9 +24,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN pecl channel-update pecl.php.net \
-    && pecl install yaml-2.0.4 \
+    && pecl install yaml-2.1.0 \
     && docker-php-ext-enable yaml \
-    && pecl install xdebug-2.9.0 \
+    && pecl install xdebug-2.9.8 \
+    && docker-php-ext-install zip \
+    && docker-php-ext-enable zip \
     && docker-php-ext-install intl
 
 # re-build www-data user with same user ID and group ID as a current host user (you)
