@@ -3,6 +3,8 @@ services:
   asterionrpg:
     environment:
       PROJECT_ENVIRONMENT: "prod"
+    volumes:
+      - ./etc/home:/etc/home:delegated
     ports:
       - "80:80"
       - "443:443"

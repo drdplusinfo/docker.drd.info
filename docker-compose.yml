@@ -4,6 +4,7 @@ services:
     build: .
     volumes:
       - ./www:/var/www:delegated
+      - ./www:/var/www:delegated
     networks:
       - default
       - proxy
