@@ -4,7 +4,7 @@ services:
     environment:
       PROJECT_ENVIRONMENT: "prod"
     volumes:
-      - ./etc/home:/etc/home:delegated
+      - .docker/home:/home:delegated
     ports:
       - "80:80"
       - "443:443"
