@@ -54,6 +54,6 @@ RUN echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" > /etc/apt/sources.lis
 
 COPY .docker /
 
-RUN chmod +x /entrypoint.sh && chmod -R 0600 /home/www-data/.ssh/*
+RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
