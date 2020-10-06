@@ -4,8 +4,9 @@ services:
     environment:
       PROJECT_ENVIRONMENT: "prod"
     volumes:
-      - .docker/home:/home:delegated
-      - .docker/root:/root:delegated
+      - .docker/home:/home
+      - .docker/root:/root
+      - .docker/etc/caddy:/etc/caddy
     ports:
       - "80:80"
       - "443:443"
