@@ -3,6 +3,5 @@ hlavni-modul.asterionrpg.cz {
 }
 
 hlavnimodul.asterionrpg.cz {
-    root * /var/www/hlavni-modul
-    import CaddyfilePhpProject
+    reverse_proxy * moduly.asterion:80 # moduly.asterion is a name of another Docker instance, available via docker compose DNS
 }

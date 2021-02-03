@@ -1,8 +1,7 @@
-http://hlavni-modul.asterionrpg.loc {
-    redir http://hlavnimodul.asterionrpg.loc{uri}
+http://hlavnimodul.asterionrpg.loc {
+    reverse_proxy * moduly.asterionrpg:80 # moduly.asterionrpg is a name of another Docker instance, available via docker compose DNS
 }
 
-http://hlavnimodul.asterionrpg.loc {
-    root * /var/www/hlavni-modul
-    import CaddyfilePhpProject
+http://hlavni-modul.asterionrpg.loc {
+    redir http://hlavnimodul.asterionrpg.loc{uri}
 }

@@ -1,4 +1,7 @@
 http://skeleton.asterionrpg.loc {
-    root * /var/www/skeleton.asterion
-    import CaddyfilePhpProject
+    reverse_proxy * moduly.asterionrpg:80 # moduly.asterionrpg is a name of another Docker instance, available via docker compose DNS
+}
+
+http://www.skeleton.asterionrpg.loc {
+    redir http://skeleton.asterionrpg.loc{uri}
 }
