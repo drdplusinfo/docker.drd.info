@@ -2,8 +2,6 @@
 
 set -x
 
-nohup php-fpm &
-
 echo PROJECT_ENVIRONMENT=$PROJECT_ENVIRONMENT
 
 if [[ -z "$PROJECT_ENVIRONMENT" ]]; then
