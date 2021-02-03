@@ -1,6 +1,6 @@
 version: "3"
 services:
-  asterionrpg:
+  docker-drdplus-info:
     build: .
     environment:
       PHP_IDE_CONFIG: "serverName=asterionrpg.loc"
@@ -18,10 +18,12 @@ services:
       - "traefik.backend=asterionrpg"
       - "traefik.frontend.rule=HostRegexp: asterionrpg.loc,{subdomain:(.+[.])+}asterionrpg.loc"
       - "traefik.docker.network=docker-www"
+    expose:
+      - "80"
+    restart: "no"
     networks:
       - default
       - proxy
-    restart: "no"
 
 networks:
   proxy:
