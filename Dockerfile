@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.0-fpm
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
@@ -25,9 +25,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN pecl channel-update pecl.php.net \
-    && pecl install yaml-2.1.0 \
+# https://pecl.php.net/package/yaml (not available via docker-php-ext-install)
+    && pecl install yaml-2.2.1 \
     && docker-php-ext-enable yaml \
-    && pecl install xdebug-2.9.8 \
+# https://pecl.php.net/package/xdebug (not available via docker-php-ext-install)
+    && pecl install xdebug-3.0.2 \
+# XDebug is enabled on-demand, see docker-compose.override.dev.yml
     && docker-php-ext-install intl \
     && docker-php-ext-enable intl
 
@@ -41,12 +44,20 @@ RUN if getent passwd www-data ; then userdel -f www-data; fi && \
 		mkdir -p /home/www-data && \
 		chown -R www-data:www-data /home/www-data
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer && \
-	chmod +x /usr/local/bin/composer && \
-  chown www-data:www-data /usr/local/bin/composer
+USER www-data
+
+RUN mkdir -p /home/www-data/bin \
+		&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/home/www-data/bin --filename=composer \
+		&& chmod +x /home/www-data/bin/composer \
+  	&& echo 'export PATH="/home/www-data/bin:$PATH"' >> ~/.profile
+
+RUN echo 'alias ll="ls -al"' >> ~/.bashrc
+
+USER root
 
 RUN echo 'alias ll="ls -al"' >> ~/.bashrc \
-    && mkdir -p /var/log/php/tracy && chown -R www-data /var/log/php && chmod +w /var/log/php
+		&& mkdir -p /var/log/php/tracy && chown -R www-data /var/log/php && chmod +w /var/log/php
+
 
 RUN echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" > /etc/apt/sources.list.d/caddy-fury.list \
 		&& apt-get update && apt-get install caddy && caddy list-modules \
