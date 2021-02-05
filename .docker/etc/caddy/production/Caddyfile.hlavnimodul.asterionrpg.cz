@@ -1,7 +1,11 @@
-hlavni-modul.asterionrpg.cz {
+hlavnimodul.asterionrpg.cz {
+    reverse_proxy * moduly.asterion:80 # moduly.asterion is a name of another Docker instance, available via docker compose DNS
+}
+
+http://hlavni-modul.asterionrpg.cz {
     redir https://hlavnimodul.asterionrpg.cz{uri}
 }
 
-hlavnimodul.asterionrpg.cz {
-    reverse_proxy * moduly.asterion:80 # moduly.asterion is a name of another Docker instance, available via docker compose DNS
+https://hlavni-modul.asterionrpg.cz {
+    redir https://hlavnimodul.asterionrpg.cz{uri}
 }
