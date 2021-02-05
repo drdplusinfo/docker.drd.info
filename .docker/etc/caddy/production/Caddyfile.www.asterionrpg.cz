@@ -3,5 +3,5 @@ asterionrpg.cz {
 }
 
 www.asterionrpg.cz {
-    redir asterionrpg.cz{uri}
+    redir https://asterionrpg.cz{uri} permanent
 }
