@@ -3,9 +3,7 @@ services:
   docker-drdplus-info:
     build: .
     environment:
-      PHP_IDE_CONFIG: "serverName=asterionrpg.loc"
       PROJECT_ENVIRONMENT: "dev"
-      XDEBUG_CONFIG: "remote_host=172.17.0.1 remote_enable=1 idekey=PHPSTORM remote_log=/tmp/xdebug.log"
     volumes:
       - ./.docker/etc/caddy:/etc/caddy:delegated
       - ./.docker/entrypoint.sh:/entrypoint.sh:delegated
@@ -14,8 +12,7 @@ services:
       - -c
       - /bin/bash /entrypoint.sh
     labels:
-      - "traefik.backend=asterionrpg"
-      - "traefik.frontend.rule=HostRegexp: asterionrpg.loc,{subdomain:(.+[.])+}asterionrpg.loc"
+      - "traefik.frontend.rule=HostRegexp: gamecon.loc,asterionrpg.loc,{subdomain:(.+[.])+}asterionrpg.loc"
       - "traefik.docker.network=docker-www"
     expose:
       - "80"
