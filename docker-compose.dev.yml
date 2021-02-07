@@ -1,6 +1,6 @@
 version: "3"
 services:
-  docker-drdplus-info:
+  docker.drdplus.info:
     build: .
     environment:
       PROJECT_ENVIRONMENT: "dev"
