@@ -9,6 +9,8 @@ if [[ -z "$PROJECT_ENVIRONMENT" ]]; then
   exit 1
 fi
 
+echo activate docker-asterion-moduly
+
 if [[ $(grep --invert-match --ignore-case ^dev <<<"$PROJECT_ENVIRONMENT") ]]; then
   /usr/bin/caddy run --config /etc/caddy/production/Caddyfile
 else

@@ -1,0 +1,7 @@
+http://hlavnimodul.asterionrpg.loc {
+    reverse_proxy * moduly.asterionrpg:80 # moduly.asterionrpg is a name of another Docker instance, available via docker compose DNS
+}
+
+http://hlavni-modul.asterionrpg.loc {
+    redir http://hlavnimodul.asterionrpg.loc{uri}
+}
