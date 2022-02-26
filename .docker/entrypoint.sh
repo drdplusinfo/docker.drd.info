@@ -2,6 +2,8 @@
 
 set -x
 
+sh ./init-user-www-data.sh
+
 echo PROJECT_ENVIRONMENT=$PROJECT_ENVIRONMENT
 
 if [[ -z "$PROJECT_ENVIRONMENT" ]]; then
