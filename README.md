@@ -1,4 +1,4 @@
-# docker.drdpus.info
+# docker.drd.info
 
 Něco už prostě potřebovalo hodit do Dockeru:
 
