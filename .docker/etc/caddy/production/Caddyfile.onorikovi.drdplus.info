@@ -1,0 +1,19 @@
+onorikovi.drdplus.info {
+    reverse_proxy * onorikovi:80 # onorikovi is a name of another Docker instance, available via docker compose DNS
+}
+
+http://www.onorikovi.drdplus.info {
+    redir https://onorikovi.drdplus.info{uri} permanent
+ }
+
+https://www.onorikovi.drdplus.info {
+    redir https://onorikovi.drdplus.info{uri} permanent
+}
+
+http://o-norikovi.drdplus.info {
+    redir https://onorikovi.drdplus.info{uri} permanent
+}
+
+https://o-norikovi.drdplus.info {
+    redir https://onorikovi.drdplus.info{uri} permanent
+}
