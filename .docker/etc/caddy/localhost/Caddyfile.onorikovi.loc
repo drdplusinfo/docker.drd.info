@@ -1,5 +1,5 @@
 http://onorikovi.loc {
-    reverse_proxy * onorikovi:80 # onorikovi is a name of another Docker instance, available via docker compose DNS
+    reverse_proxy * drdplus:80 # drdplus is a name of another Docker instance, available via docker compose DNS
 }
 
 http://www.onorikovi.loc {
