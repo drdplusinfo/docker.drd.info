@@ -1,7 +1,8 @@
+# docker pull jaroslavtyc/drd.info:latest && docker-compose build
 version: "3"
 services:
   docker.drd.info:
-    build: .
+    image: jaroslavtyc/drd.info
     environment:
       PROJECT_ENVIRONMENT: "dev"
     volumes:
