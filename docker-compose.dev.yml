@@ -1,6 +1,6 @@
 version: "3"
 services:
-  docker.drdplus.info:
+  docker.drd.info:
     build: .
     environment:
       PROJECT_ENVIRONMENT: "dev"
@@ -12,7 +12,7 @@ services:
       - -c
       - /bin/bash /entrypoint.sh
     labels:
-      - "traefik.frontend.rule=HostRegexp: gamecon.loc,asterionrpg.loc,{subdomain:(.+[.])+}asterionrpg.loc"
+      - "traefik.frontend.rule=HostRegexp: gamecon.loc,asterionrpg.loc,{subdomain:(.+[.])+}asterionrpg.loc,drdplus.loc,{subdomain:(.+[.])+}drdplus.loc,{catchall:.*}"
       - "traefik.docker.network=docker-www"
     expose:
       - "80"

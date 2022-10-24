@@ -1,13 +1,12 @@
 version: "3"
 services:
-  docker.drdplus.info:
+  docker.drd.info:
     build: .
     environment:
       PROJECT_ENVIRONMENT: "prod"
     volumes:
-      - .docker/home:/home
-      - .docker/root:/root
-      - .docker/etc/caddy:/etc/caddy
+      - ./.docker/root:/root
+      - ./.docker/etc/caddy:/etc/caddy
     ports:
       - "80:80"
       - "443:443"

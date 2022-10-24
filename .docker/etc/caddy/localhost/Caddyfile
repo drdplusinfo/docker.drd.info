@@ -2,5 +2,8 @@ import Caddyfile.skeleton.asterionrpg.loc
 import Caddyfile.hlavnimodul.asterionrpg.loc
 import Caddyfile.dalavy.asterionrpg.loc
 import Caddyfile.www.asterionrpg.loc
+
 import Caddyfile.gamecon.loc
+
 import Caddyfile.onorikovi.loc
+import Caddyfile.drdplus.index.loc

@@ -1,0 +1,7 @@
+http://www.drdplus.loc {
+    reverse_proxy * drdplus:80 # drdplus is a name of another Docker instance, available via docker compose DNS
+}
+
+http://drdplus.loc {
+    redir http://www.drdplus.loc{uri}
+}
