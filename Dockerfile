@@ -1,4 +1,4 @@
-# docker pull ubuntu:jammy && docker build --no-cache --tag jaroslavtyc/drd.info:latest . && docker push jaroslavtyc/drd.info:latest
+# ./build.sh
 
 FROM ubuntu:jammy AS drdplus-server-step1
 

@@ -1,22 +1,22 @@
 # docker pull jaroslavtyc/drd.info:latest && docker-compose up
 version: "3"
 services:
-  docker.drd.info:
-    image: jaroslavtyc/drd.info:latest
-    environment:
-      PROJECT_ENVIRONMENT: "prod"
-    volumes:
-      - ./.docker/root:/root
-      - ./.docker/etc/caddy:/etc/caddy
-    ports:
-      - "80:80"
-      - "443:443"
-    restart: "always"
-    networks:
-      - default
-      - proxy
+    docker.drd.info:
+        image: jaroslavtyc/drd.info:latest
+        environment:
+            PROJECT_ENVIRONMENT: "prod"
+        volumes:
+            - ./.docker/root:/root
+            - ./.docker/etc/caddy:/etc/caddy
+        ports:
+            - "80:80"
+            - "443:443"
+        restart: "always"
+        networks:
+            - default
+            - proxy
 
 networks:
-  proxy:
-    external:
-      name: docker-www
+    proxy:
+        external:
+            name: docker-www

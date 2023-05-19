@@ -1,28 +1,28 @@
 # docker pull jaroslavtyc/drd.info:latest && docker-compose up
 version: "3"
 services:
-  docker.drd.info:
-    image: jaroslavtyc/drd.info:latest
-    environment:
-      PROJECT_ENVIRONMENT: "dev"
-    volumes:
-      - ./.docker/etc/caddy:/etc/caddy:delegated
-      - ./.docker/entrypoint.sh:/entrypoint.sh:delegated
-    entrypoint:
-      - sh
-      - -c
-      - /bin/bash /entrypoint.sh
-    labels:
-      - "traefik.frontend.rule=HostRegexp: gamecon.loc,asterionrpg.loc,{subdomain:(.+[.])+}asterionrpg.loc,drdplus.loc,{subdomain:(.+[.])+}drdplus.loc,{catchall:.*}"
-      - "traefik.docker.network=docker-www"
-    expose:
-      - "80"
-    restart: "no"
-    networks:
-      - default
-      - proxy
+    docker.drd.info:
+        image: jaroslavtyc/drd.info:latest
+        environment:
+            PROJECT_ENVIRONMENT: "dev"
+        volumes:
+            - ./.docker/etc/caddy:/etc/caddy:delegated
+            - ./.docker/entrypoint.sh:/entrypoint.sh:delegated
+        entrypoint:
+            - sh
+            - -c
+            - /bin/bash /entrypoint.sh
+        labels:
+            - "traefik.frontend.rule=HostRegexp: gamecon.loc,asterionrpg.loc,{subdomain:(.+[.])+}asterionrpg.loc,drdplus.loc,{subdomain:(.+[.])+}drdplus.loc,{catchall:.*}"
+            - "traefik.docker.network=docker-www"
+        expose:
+            - "80"
+        restart: "no"
+        networks:
+            - default
+            - proxy
 
 networks:
-  proxy:
-    external:
-      name: docker-www
+    proxy:
+        external:
+            name: docker-www
